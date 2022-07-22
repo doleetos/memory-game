@@ -52,6 +52,7 @@ const cardArray = [
 let cardsChosen = [];
 let cardsChosenIds = [];
 let cardsWon = 0;
+let keepScore = 0;
 
 
 cardArray.sort(() => 0.5 - Math.random());  //shuffles array randomly
@@ -59,6 +60,7 @@ cardArray.sort(() => 0.5 - Math.random());  //shuffles array randomly
 const gridDisplay = document.getElementById('grid');
 const result = document.getElementById('result');
 const restart = document.getElementById('restart-button');
+const foundAll = document.getElementById('found-all');
 
 
 function createBoard() {
@@ -91,11 +93,13 @@ function checkMatch() {
         cards[optionTwoId].removeEventListener('click', flipCard);
 
         cardsWon = cardsWon + 1;
+        keepScore = keepScore + 3;
 
-        result.innerHTML = cardsWon;
+        result.innerHTML = keepScore;
 
         restart.onclick = function () {
             cardsWon = 0;
+            keepScore = 0;
             result.innerHTML = '';
         }
 
@@ -103,13 +107,16 @@ function checkMatch() {
         cards[optionOneId].setAttribute('src', 'images/blanks.png');
         cards[optionTwoId].setAttribute('src', 'images/blanks.png');
         alert('Sorry, try again...');
+        keepScore = keepScore - 1;
+        result.innerHTML = keepScore;
     }
 
     cardsChosen = [];
     cardsChosenIds = [];
 
     if (cardsWon === cardArray.length / 2) {
-        result.textContent = 'Congratulations you found them all!';
+        foundAll.textContent = 'Congratulations you found them all!';
+        newLevel();
     }
 
     
