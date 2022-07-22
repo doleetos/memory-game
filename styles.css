@@ -31,6 +31,7 @@ h3 {
 
 img {
     border: 2px solid black;
+    min-width: 108px;
 }
 
 button {
