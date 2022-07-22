@@ -64,7 +64,7 @@ const restart = document.getElementById('restart-button');
 function createBoard() {
     for ( let i = 0; i < cardArray.length; i++) {
         const card = document.createElement('img');
-        card.setAttribute('src', 'images/blank.png');
+        card.setAttribute('src', 'images/blanks.png');
         card.setAttribute('data-id', i);
         card.addEventListener('click', flipCard);
         restart.addEventListener('click', restartGame);
@@ -80,8 +80,8 @@ function checkMatch() {
     const optionTwoId = cardsChosenIds[1];
 
     if (optionOneId == optionTwoId) {
-        cards[optionOneId].setAttribute('src', 'images/blank.png');
-        cards[optionTwoId].setAttribute('src', 'images/blank.png');
+        cards[optionOneId].setAttribute('src', 'images/blanks.png');
+        cards[optionTwoId].setAttribute('src', 'images/blanks.png');
         alert('You clicked the same image!');
     } else if (cardsChosen[0] === cardsChosen[1]) {
         alert('you found a match');
@@ -100,8 +100,8 @@ function checkMatch() {
         }
 
     } else {
-        cards[optionOneId].setAttribute('src', 'images/blank.png');
-        cards[optionTwoId].setAttribute('src', 'images/blank.png');
+        cards[optionOneId].setAttribute('src', 'images/blanks.png');
+        cards[optionTwoId].setAttribute('src', 'images/blanks.png');
         alert('Sorry, try again...');
     }
 
