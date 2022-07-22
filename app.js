@@ -78,7 +78,6 @@ function checkMatch() {
     const cards = document.querySelectorAll('img');
     const optionOneId = cardsChosenIds[0];
     const optionTwoId = cardsChosenIds[1];
-    console.log(optionOneId);
 
     if (optionOneId == optionTwoId) {
         cards[optionOneId].setAttribute('src', 'images/blank.png');
@@ -124,8 +123,6 @@ function flipCard() {
     if (cardsChosen.length === 2) {
         setTimeout( checkMatch, 500);
     }
-
-    console.log(`Card id is: ${cardId}, Card chosen is: ${cardsChosen}, Card chosen id is: ${cardsChosenIds}`);
 }
 
 function restartGame() {
