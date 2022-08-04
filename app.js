@@ -49,20 +49,25 @@ const cardArray = [
     }    
 ];
 
+
+// initial scores
 let cardsChosen = [];
 let cardsChosenIds = [];
 let cardsWon = 0;
 let keepScore = 0;
 
 
-cardArray.sort(() => 0.5 - Math.random());  //shuffles array randomly
+cardArray.sort(() => 0.5 - Math.random());  //shuffles cards randomly
 
+
+//get DOM elements
 const gridDisplay = document.getElementById('grid');
 const result = document.getElementById('result');
 const restart = document.getElementById('restart-button');
 const foundAll = document.getElementById('found-all');
 
 
+// creates game board
 function createBoard() {
     for ( let i = 0; i < cardArray.length; i++) {
         result.innerHTML = 0;
@@ -76,7 +81,7 @@ function createBoard() {
 }
 
 
-
+// checks if user has a match or not. If there's a match, 3 points added to score. If not, -1 point taken away from score
 function checkMatch() {
     const cards = document.querySelectorAll('img');
     const optionOneId = cardsChosenIds[0];
@@ -118,6 +123,8 @@ function checkMatch() {
     
 }
 
+
+// stores user chosen card in an array to check if there's a match or not
 function flipCard() {
     let cardId = this.getAttribute('data-id');
     cardsChosen.push(cardArray[cardId].name);
@@ -128,6 +135,8 @@ function flipCard() {
     }
 }
 
+
+// resets score, restarts game
 function restartGame() {
     cardsChosen = [];
     cardsChosenIds = [];
