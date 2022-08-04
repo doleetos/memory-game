@@ -65,6 +65,7 @@ const foundAll = document.getElementById('found-all');
 
 function createBoard() {
     for ( let i = 0; i < cardArray.length; i++) {
+        result.innerHTML = 0;
         const card = document.createElement('img');
         card.setAttribute('src', 'images/blanks.png');
         card.setAttribute('data-id', i);
@@ -86,7 +87,6 @@ function checkMatch() {
         cards[optionTwoId].setAttribute('src', 'images/blanks.png');
         alert('You clicked the same image!');
     } else if (cardsChosen[0] === cardsChosen[1]) {
-        alert('you found a match');
         cards[optionOneId].setAttribute('src', 'images/white.png');
         cards[optionTwoId].setAttribute('src', 'images/white.png');
         cards[optionOneId].removeEventListener('click', flipCard);
@@ -98,15 +98,12 @@ function checkMatch() {
         result.innerHTML = keepScore;
 
         restart.onclick = function () {
-            cardsWon = 0;
-            keepScore = 0;
-            result.innerHTML = '';
+            restartGame();
         }
 
     } else {
         cards[optionOneId].setAttribute('src', 'images/blanks.png');
         cards[optionTwoId].setAttribute('src', 'images/blanks.png');
-        alert('Sorry, try again...');
         keepScore = keepScore - 1;
         result.innerHTML = keepScore;
     }
@@ -116,7 +113,6 @@ function checkMatch() {
 
     if (cardsWon === cardArray.length / 2) {
         foundAll.textContent = 'Congratulations you found them all!';
-        newLevel();
     }
 
     
@@ -133,11 +129,11 @@ function flipCard() {
 }
 
 function restartGame() {
-    let cardsChosen = [];
-    let cardsChosenIds = [];
-    let cardsWon = 0;
+    cardsChosen = [];
+    cardsChosenIds = [];
+    cardsWon = 0;
+    keepScore = 0;
     gridDisplay.innerHTML = '';
-    result.innerHTML = 0;
 
     cardArray.sort(() => 0.5 - Math.random());
 
