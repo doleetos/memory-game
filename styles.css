@@ -14,49 +14,88 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #293462;
+    background-color: #231955;
 }
 
 h1 {
     margin: 3rem 0 5rem 0;
     font-size: 2.5rem;
-    color: #FFF80A;
+    color: #E8AA42;
 }
 
 h3 {
-    font-size: 1.7rem;
-    margin-bottom: 2rem;
-    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #FFE5B4;
+}
+
+.score-container {
+    width: 400px;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    background-color: #FFE5B4;
+    border-radius: 20px;
+    padding: 0.5rem;
+    box-shadow: 14px 14px 0 0 #000000;
 }
 
 #grid {
-    width: 450px;
-    height: 312px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1rem;
     flex-wrap: wrap;
+    padding: 5px;
 }
 
 img {
-    border: 2px solid black;
-    min-width: 108px;
+    border-radius: 20px;
     cursor: pointer;
+    max-width: 90px;
+    max-height: 90px;
 }
 
 button {
-    margin-top: 2.5rem;
+    margin-top: 5rem;
     width: 13rem;
     padding: 1rem;
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5rem;
-    background-color: #D61C4E;
+    background-color: #1F4690;
     border: none;
     cursor: pointer;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    color: white;
+}
+
+@media (max-width: 533px) {
+    h1 {
+        text-align: center;
+        margin: 1rem 0 3rem 0;
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 60vw;
+        font-size: 1rem;
+        margin-top: 2.5rem;
+    }
+
+    .score-container {
+        width: 100vw;
+        text-align: center;
+    }
+
+    #grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    img {
+        width: 20vw;
+        gap: 0;
+    }
 }
 
